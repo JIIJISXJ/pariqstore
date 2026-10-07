@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pariq Store | هدايا وجمال</title>
+
+  <style>
+    :root {
+      --pink: #c8879b;
+      --dark-pink: #8e5368;
+      --cream: #fffaf8;
+      --text: #46343a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 7%;
+      background: rgba(255, 250, 248, 0.96);
+      border-bottom: 1px solid #f1e2e5;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--dark-pink);
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .brand img {
+      width: 62px;
+      height: 62px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: var(--pink);
+    }
+
+    .hero {
+      min-height: 570px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 50px 20px;
+      background:
+        linear-gradient(rgba(255, 250, 248, 0.32), rgba(255, 250, 248, 0.56)),
+        url("pariq.jpg") center 44% / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 650px;
+      padding: 34px;
+      border-radius: 22px;
+      background: rgba(255, 250, 248, 0.78);
+      backdrop-filter: blur(3px);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      color: var(--dark-pink);
+      font-size: clamp(36px, 7vw, 62px);
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 13px 28px;
+      color: white;
+      background: var(--pink);
+      border-radius: 30px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--dark-pink);
+    }
+
+    section {
+      padding: 55px 7%;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: var(--dark-pink);
+      font-size: 30px;
+    }
+
+    .intro {
+      margin: 0 auto 30px;
+      max-width: 650px;
+      line-height: 1.8;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      max-width: 1000px;
+      margin: 28px auto 0;
+    }
+
+    .category {
+      padding: 26px 18px;
+      background: white;
+      border: 1px solid #f1e2e5;
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(110, 70, 80, 0.06);
+    }
+
+    .category span {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 34px;
+    }
+
+    .contact {
+      background: #f9edef;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      color: #765b64;
+      background: #fffaf8;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .hero-content {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <img src="pariq.jpg" alt="شعار Pariq Store">
+      Pariq Store
+    </div>
+
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#categories">الأقسام</a>
+      <a href="#about">عن المتجر</a>
+      <a href="#contact">تواصلي معنا</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Pariq Store</h1>
+        <p>كل اللي بتحبيه من هدايا، إكسسوارات، عناية بالبشرة ومستحضرات تجميل في مكان واحد.</p>
+        <a class="button" href="#categories">اكتشفي أقسامنا</a>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>تسوّقي حسب القسم</h2>
+      <p class="intro">اختاري لمستك المفضلة لنفسك أو هدية مميزة لحد بتحبيه.</p>
+
+      <div class="categories">
+        <div class="category"><span>🎁</span><h3>هدايا</h3></div>
+        <div class="category"><span>💍</span><h3>إكسسوارات</h3></div>
+        <div class="category"><span>🧴</span><h3>العناية بالبشرة</h3></div>
+        <div class="category"><span>💄</span><h3>مستحضرات تجميل</h3></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>عن Pariq Store</h2>
+      <p class="intro">
+        بنختار منتجاتنا بحب عشان نساعدك تلاقي هدايا جميلة، وإكسسوارات
+        ومنتجات عناية وتجميل تضيف لمسة مميزة ليومك.
+      </p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>تواصلي معنا</h2>
+      <p>للطلب والاستفسار، ابعتي لنا رسالة على واتساب.</p>
+      <!-- استبدلي الرقم برقم واتسابك مع مفتاح الدولة، من غير علامة + -->
+      <a class="button" href="https://wa.me/201000000000">راسلينا على واتساب</a>
+    </section>
+  </main>
+
+  <footer>© 2026 Pariq Store — جميع الحقوق محفوظة</footer>
+</body>
+</html>
