@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pariq Store - هدايا وإكسسوارات وعناية بالبشرة ومستحضرات تجميل">
-  <title>Pariq Store | هدايا وجمال</title>
+  <meta name="description" content="Pariq Store للهدايا والإكسسوارات والعناية بالبشرة ومستحضرات التجميل">
+  <title>Pariq Store | اختاري لمستك الخاصة</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --pink: #c78399;
-      --pink-dark: #92566a;
-      --pink-light: #f8e9ed;
-      --cream: #fffaf8;
-      --text: #45343a;
-      --muted: #806d73;
-      --white: #ffffff;
-      --shadow: 0 8px 26px rgba(93, 56, 68, 0.09);
+      --cream: #fbf8f4;
+      --white: #fff;
+      --rose: #b77983;
+      --rose-dark: #774952;
+      --rose-pale: #f2e6e4;
+      --gold: #b29461;
+      --ink: #302628;
+      --muted: #887b79;
+      --line: #eee6e1;
+      --shadow: 0 14px 38px rgba(69, 42, 46, .09);
     }
 
     * {
@@ -28,9 +34,9 @@
 
     body {
       margin: 0;
-      color: var(--text);
+      color: var(--ink);
       background: var(--cream);
-      font-family: Arial, Tahoma, sans-serif;
+      font-family: "Cairo", Arial, sans-serif;
     }
 
     button,
@@ -43,181 +49,212 @@
       text-decoration: none;
     }
 
-    .top-note {
-      padding: 9px 16px;
-      color: white;
-      background: var(--pink-dark);
+    .announcement {
+      padding: 8px 14px;
+      color: #fff;
+      background: var(--rose-dark);
       text-align: center;
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    header {
+    .header {
       position: sticky;
       top: 0;
       z-index: 10;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 12px 6%;
-      background: rgba(255, 250, 248, 0.97);
-      border-bottom: 1px solid #f1e2e5;
+      gap: 22px;
+      padding: 12px 7%;
+      background: rgba(251, 248, 244, .97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      color: var(--pink-dark);
+      gap: 11px;
+      color: var(--rose-dark);
       font-size: 22px;
-      font-weight: bold;
+      font-weight: 800;
       white-space: nowrap;
     }
 
     .brand img {
-      width: 55px;
-      height: 55px;
+      width: 52px;
+      height: 52px;
       object-fit: cover;
+      border: 1px solid #e6d2ce;
       border-radius: 50%;
-      border: 2px solid #efd5dc;
     }
 
-    nav {
+    .nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 19px;
-    }
-
-    nav a {
+      gap: 22px;
+      color: #55484a;
       font-size: 14px;
     }
 
-    nav a:hover {
-      color: var(--pink-dark);
+    .nav a:hover {
+      color: var(--rose);
     }
 
-    .cart-button {
+    .cart-button,
+    .button {
       border: 0;
-      border-radius: 22px;
-      padding: 10px 16px;
+      border-radius: 30px;
+      padding: 11px 19px;
       color: white;
-      background: var(--pink);
+      background: var(--rose-dark);
       cursor: pointer;
-      white-space: nowrap;
+      transition: .2s ease;
+    }
+
+    .cart-button:hover,
+    .button:hover {
+      background: var(--rose);
+      transform: translateY(-1px);
     }
 
     .hero {
-      min-height: 470px;
-      display: grid;
-      place-items: center;
-      padding: 35px 18px;
-      text-align: center;
+      min-height: 550px;
+      display: flex;
+      align-items: center;
+      padding: 60px 8%;
       background:
-        linear-gradient(rgba(255, 250, 248, 0.25), rgba(255, 250, 248, 0.48)),
+        linear-gradient(90deg, rgba(251,248,244,.96) 0%, rgba(251,248,244,.80) 45%, rgba(251,248,244,.18) 100%),
         url("pariq.jpg") center 44% / cover no-repeat;
     }
 
-    .hero-box {
-      width: min(650px, 100%);
-      padding: 28px 24px;
-      border: 1px solid rgba(255, 255, 255, 0.75);
-      border-radius: 24px;
-      background: rgba(255, 250, 248, 0.83);
-      box-shadow: var(--shadow);
+    .hero-content {
+      max-width: 570px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
     .hero h1 {
-      margin: 0 0 10px;
-      color: var(--pink-dark);
-      font-size: clamp(38px, 7vw, 64px);
+      margin: 0;
+      color: var(--rose-dark);
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: var(--ink);
+      font-size: .48em;
+      font-weight: 500;
     }
 
     .hero p {
-      margin: 0 auto 18px;
-      max-width: 540px;
-      line-height: 1.9;
-      font-size: 18px;
+      max-width: 480px;
+      margin: 18px 0 26px;
+      color: #6f6261;
+      line-height: 2;
+      font-size: 17px;
     }
 
-    .primary-button,
-    .order-button {
+    .hero .button {
       display: inline-block;
-      border: 0;
-      border-radius: 25px;
-      padding: 12px 24px;
-      color: white;
-      background: var(--pink);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .primary-button:hover,
-    .order-button:hover {
-      background: var(--pink-dark);
+      padding: 13px 28px;
     }
 
     .section {
-      padding: 52px 6%;
+      padding: 72px 7%;
     }
 
     .section-heading {
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       text-align: center;
     }
 
+    .section-heading .eyebrow {
+      margin-bottom: 4px;
+    }
+
     .section-heading h2 {
-      margin: 0 0 8px;
-      color: var(--pink-dark);
-      font-size: 30px;
+      margin: 0;
+      color: var(--rose-dark);
+      font-size: clamp(26px, 4vw, 37px);
     }
 
     .section-heading p {
-      margin: 0;
+      margin: 8px 0 0;
       color: var(--muted);
-      line-height: 1.7;
+      font-size: 14px;
     }
 
     .categories {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      max-width: 1050px;
-      margin: 0 auto;
+      gap: 16px;
+      max-width: 1100px;
+      margin: auto;
     }
 
     .category {
-      padding: 20px 12px;
-      border: 1px solid #f0dfe4;
-      border-radius: 16px;
-      background: white;
+      width: 100%;
+      min-height: 145px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      padding: 18px 12px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      color: var(--ink);
+      background: var(--white);
+      font-family: inherit;
       text-align: center;
-      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: .22s ease;
     }
 
-    .category .emoji {
-      display: block;
-      margin-bottom: 9px;
+    .category:hover {
+      border-color: #d7b5b7;
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+
+    .category:focus-visible {
+      outline: 2px solid var(--rose);
+      outline-offset: 3px;
+    }
+
+    .category-icon {
+      margin-bottom: 5px;
       font-size: 32px;
     }
 
     .category h3 {
       margin: 0;
-      font-size: 16px;
+      font-size: 15px;
     }
 
-    .products-section {
-      background: #fff5f6;
+    .category-hint {
+      margin-top: 4px;
+      color: var(--rose);
+      font-size: 11px;
+    }
+
+    .shop {
+      background: #f5efeb;
+      scroll-margin-top: 100px;
     }
 
     .shop-tools {
+      max-width: 1120px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      max-width: 1100px;
-      margin: 0 auto 22px;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 auto 25px;
     }
 
     .filters {
@@ -226,67 +263,96 @@
       gap: 8px;
     }
 
-    .filter-button {
-      border: 1px solid #e7cbd3;
-      border-radius: 20px;
+    .filter {
       padding: 8px 15px;
-      color: var(--pink-dark);
-      background: white;
+      border: 1px solid #dfceca;
+      border-radius: 24px;
+      color: var(--rose-dark);
+      background: transparent;
       cursor: pointer;
+      transition: .2s ease;
     }
 
-    .filter-button.active {
+    .filter.active,
+    .filter:hover {
       color: white;
-      background: var(--pink-dark);
-      border-color: var(--pink-dark);
+      background: var(--rose-dark);
+      border-color: var(--rose-dark);
     }
 
-    .search-box {
-      width: min(260px, 100%);
-      padding: 10px 13px;
-      border: 1px solid #e7cbd3;
-      border-radius: 22px;
-      outline-color: var(--pink);
+    .search {
+      width: 240px;
+      padding: 10px 15px;
+      border: 1px solid #dfceca;
+      border-radius: 24px;
+      outline-color: var(--rose);
       background: white;
     }
 
-    .product-grid {
+    .products {
+      max-width: 1120px;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
-      max-width: 1100px;
       margin: auto;
     }
 
     .product-card {
       overflow: hidden;
-      border: 1px solid #f0e3e6;
-      border-radius: 17px;
+      border: 1px solid #eee5e1;
+      border-radius: 15px;
       background: white;
-      box-shadow: var(--shadow);
+      box-shadow: 0 7px 20px rgba(69, 42, 46, .045);
+      transition: .25s ease;
     }
 
-    .product-card img {
+    .product-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+
+    .product-image-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #f0e8e4;
+    }
+
+    .product-image {
       display: block;
       width: 100%;
-      height: 220px;
+      height: 235px;
       object-fit: cover;
-      background: #f5ecee;
+      transition: transform .4s ease;
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.04);
+    }
+
+    .tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      color: white;
+      background: var(--rose-dark);
+      font-size: 11px;
     }
 
     .product-info {
-      padding: 14px;
-    }
-
-    .product-info h3 {
-      margin: 0 0 7px;
-      font-size: 17px;
+      padding: 15px;
     }
 
     .product-category {
-      margin-bottom: 10px;
-      color: var(--muted);
-      font-size: 13px;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .product-info h3 {
+      margin: 5px 0 13px;
+      font-size: 15px;
+      font-weight: 600;
     }
 
     .product-bottom {
@@ -297,37 +363,70 @@
     }
 
     .price {
-      color: var(--pink-dark);
-      font-weight: bold;
+      color: var(--rose-dark);
+      font-size: 16px;
+      font-weight: 800;
     }
 
     .add-button {
+      padding: 8px 11px;
       border: 0;
-      border-radius: 18px;
-      padding: 8px 12px;
+      border-radius: 20px;
       color: white;
-      background: var(--pink);
+      background: var(--rose);
       cursor: pointer;
+      font-size: 12px;
     }
 
     .add-button:hover {
-      background: var(--pink-dark);
+      background: var(--rose-dark);
+    }
+
+    .empty-message {
+      grid-column: 1 / -1;
+      padding: 25px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .cart-box {
+      max-width: 1120px;
+      margin: 25px auto 0;
+      padding: 18px;
+      border: 1px solid #e7d9d4;
+      border-radius: 15px;
+      background: white;
+      text-align: center;
+      scroll-margin-top: 100px;
+    }
+
+    .cart-box p {
+      margin: 0 0 12px;
+      color: var(--muted);
     }
 
     .about {
-      max-width: 750px;
+      max-width: 740px;
       margin: auto;
-      line-height: 1.9;
+      color: #6f6261;
+      line-height: 2;
       text-align: center;
     }
 
     .contact {
-      background: var(--pink-light);
+      padding: 58px 7%;
+      background: var(--rose-pale);
       text-align: center;
     }
 
+    .contact h2 {
+      margin: 0;
+      color: var(--rose-dark);
+      font-size: 30px;
+    }
+
     .contact p {
-      line-height: 1.8;
+      color: #6f6261;
     }
 
     footer {
@@ -335,49 +434,62 @@
       color: var(--muted);
       background: var(--cream);
       text-align: center;
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    .cart-summary {
-      max-width: 1100px;
-      margin: 24px auto 0;
-      padding: 15px;
-      border: 1px dashed #d8aab7;
-      border-radius: 14px;
-      background: white;
-      text-align: center;
-    }
-
-    .cart-summary p {
-      margin: 0 0 12px;
-    }
-
-    @media (max-width: 850px) {
-      header {
+    @media (max-width: 900px) {
+      .header {
         flex-wrap: wrap;
         justify-content: center;
       }
 
-      .product-grid {
+      .products {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        background-position: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        gap: 10px;
+        padding: 10px 4%;
+      }
+
+      .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 450px;
+        padding: 40px 7%;
+        background:
+          linear-gradient(rgba(251,248,244,.83), rgba(251,248,244,.74)),
+          url("pariq.jpg") center / cover no-repeat;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .section {
+        padding: 52px 5%;
       }
 
       .categories {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 560px) {
-      nav {
         gap: 12px;
       }
 
-      .hero {
-        min-height: 390px;
-      }
-
-      .hero-box {
-        padding: 23px 16px;
+      .category {
+        min-height: 125px;
       }
 
       .shop-tools {
@@ -385,16 +497,16 @@
         flex-direction: column;
       }
 
-      .search-box {
+      .search {
         width: 100%;
       }
 
-      .product-grid {
+      .products {
         gap: 11px;
       }
 
-      .product-card img {
-        height: 165px;
+      .product-image {
+        height: 175px;
       }
 
       .product-info {
@@ -409,72 +521,4 @@
   </style>
 </head>
 
-<body>
-  <div class="top-note">أهلاً بيكي في Pariq Store — هدايا وجمال في مكان واحد</div>
-
-  <header>
-    <a class="brand" href="#home">
-      <img src="pariq.jpg" alt="شعار Pariq Store">
-      <span>Pariq Store</span>
-    </a>
-
-    <nav aria-label="القائمة الرئيسية">
-      <a href="#home">الرئيسية</a>
-      <a href="#categories">الأقسام</a>
-      <a href="#products">المنتجات</a>
-      <a href="#about">عن المتجر</a>
-      <a href="#contact">تواصلي معنا</a>
-    </nav>
-
-    <button class="cart-button" onclick="goToCart()">
-      🛍️ السلة (<span id="cart-count">0</span>)
-    </button>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-box">
-        <h1>Pariq Store</h1>
-        <p>
-          هدايا مميزة، إكسسوارات جميلة، وعناية بالبشرة ومستحضرات تجميل
-          تختاري منها اللي يناسبك.
-        </p>
-        <a class="primary-button" href="#products">تسوّقي الآن</a>
-      </div>
-    </section>
-
-    <section class="section" id="categories">
-      <div class="section-heading">
-        <h2>أقسام المتجر</h2>
-        <p>اختاري القسم اللي بتحبيه</p>
-      </div>
-
-      <div class="categories">
-        <div class="category"><span class="emoji">🎁</span><h3>هدايا</h3></div>
-        <div class="category"><span class="emoji">💍</span><h3>إكسسوارات</h3></div>
-        <div class="category"><span class="emoji">🧴</span><h3>عناية بالبشرة</h3></div>
-        <div class="category"><span class="emoji">💄</span><h3>مستحضرات تجميل</h3></div>
-      </div>
-    </section>
-
-    <section class="section products-section" id="products">
-      <div class="section-heading">
-        <h2>منتجاتنا</h2>
-        <p>المنتجات والأسعار هنا تجريبية للعرض، وتتغير حسب منتجات المحل.</p>
-      </div>
-
-      <div class="shop-tools">
-        <div class="filters">
-          <button class="filter-button active" data-category="الكل">الكل</button>
-          <button class="filter-button" data-category="هدايا">هدايا</button>
-          <button class="filter-button" data-category="إكسسوارات">إكسسوارات</button>
-          <button class="filter-button" data-category="عناية بالبشرة">عناية بالبشرة</button>
-          <button class="filter-button" data-category="مستحضرات تجميل">تجميل</button>
-        </div>
-
-        <input
-          class="search-box"
-          id="search"
-          type="search"
-          placeholder="ابحثي عن منتج..."
-   
+<bo
